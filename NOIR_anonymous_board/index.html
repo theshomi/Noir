@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070708">
+  <meta name="description" content="Анонимная доска коротких сообщений. Без аккаунтов. Сообщения исчезают сами.">
+  <title>NOIR — общая доска</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="NOIR — главная"><span class="brand-mark">N</span><span>NOIR<span class="brand-dot">.</span></span></a>
+    <div class="top-status"><span class="status-dot"></span><span>ОТКРЫТАЯ ДОСКА</span></div>
+    <button id="refreshBtn" class="icon-button" aria-label="Обновить ленту" title="Обновить">↻</button>
+  </header>
+
+  <main class="layout">
+    <section class="intro">
+      <div class="eyebrow"><span class="eyebrow-line"></span> БЕЗ ИМЁН. БЕЗ СЛЕДОВ.</div>
+      <h1>Скажи.<br><span>И отпусти.</span></h1>
+      <p class="intro-copy">Одна общая доска для всех. Оставь мысль, вопрос или историю — без регистрации и профиля. Время сотрёт остальное.</p>
+      <div class="principles">
+        <div><span class="principle-icon">◌</span><span>Анонимно</span></div>
+        <div><span class="principle-icon">⌁</span><span>Самоудаление</span></div>
+        <div><span class="principle-icon">◈</span><span>Одна лента</span></div>
+      </div>
+    </section>
+
+    <section class="composer glass-panel" aria-labelledby="composeTitle">
+      <div class="panel-head"><div><span class="section-kicker">01 / НОВАЯ МЫСЛЬ</span><h2 id="composeTitle">Оставить сообщение</h2></div><span class="lock-badge">NO ACCOUNT <span>↗</span></span></div>
+      <form id="postForm">
+        <label class="sr-only" for="messageInput">Текст сообщения</label>
+        <textarea id="messageInput" name="text" maxlength="1000" placeholder="Что у тебя на уме?" required></textarea>
+        <div class="composer-meta"><span id="charCount">0 / 1000</span><span>Не указывай личные данные</span></div>
+        <div class="expiry-row">
+          <label for="ttlSelect">УДАЛИТЬ ЧЕРЕЗ</label>
+          <div class="select-wrap"><select id="ttlSelect" name="ttlSeconds">
+            <option value="3600">1 час</option>
+            <option value="86400" selected>24 часа</option>
+            <option value="259200">3 дня</option>
+            <option value="604800">7 дней</option>
+          </select><span>⌄</span></div>
+        </div>
+        <div class="form-bottom"><span class="privacy-note"><span class="tiny-dot"></span> Без регистрации</span><button id="submitBtn" class="primary-button" type="submit"><span>Опубликовать</span><span class="button-arrow">↗</span></button></div>
+        <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="feed-section">
+      <div class="feed-heading"><div><span class="section-kicker">02 / ОБЩИЙ ПОТОК</span><h2>Последние мысли <span class="live-pill">LIVE</span></h2></div><div class="feed-count"><span id="postCount">—</span><span>СООБЩЕНИЙ</span></div></div>
+      <div class="feed-tools"><span class="feed-note">Свежие — сверху. Ничего не привязано к имени.</span><button id="sortBtn" class="sort-button" type="button">СНАЧАЛА НОВЫЕ <span>↕</span></button></div>
+      <div id="feed" class="feed" aria-live="polite"><div class="empty-state"><span class="loader"></span><p>Подключаемся к доске…</p></div></div>
+      <div class="feed-footer"><span>КОНЕЦ ЛЕНТЫ — НА СЕЙЧАС</span><span class="footer-star">✳</span></div>
+    </section>
+
+    <section class="rules glass-panel">
+      <div class="rules-symbol">i</div><div><h3>Негласные правила</h3><p>Не публикуй адреса, телефоны, пароли и чужие личные данные. Запрещены угрозы, травля и незаконный контент. Сообщения можно пожаловаться — после нескольких уникальных жалоб они скрываются.</p></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>NOIR © <span id="year"></span></span><span>МЕНЬШЕ СЛЕДОВ. БОЛЬШЕ СМЫСЛА.</span><a href="#composeTitle">НАВЕРХ ↑</a></footer>
+</body>
+</html>
